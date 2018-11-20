@@ -116,28 +116,29 @@ public class CacheSim {
 		hitOrMiss= "Miss";
 		
 		
-		for (int i=3;i<19; i++){
-		
-			
-		cache[slots][i]= MM[wholeBlockStarts];
+		for (int i=4;i<20; i++){
+//****************************************************************************************************************************************************		
+//*****************************************************************************************************************************************************
+//*****************************************************************************************************************************************************
+		cache[tag][i]= MM[wholeBlockStarts];
 	wholeBlockStarts=wholeBlockStarts +1;
 	//tagAndSlot=tagAndSlot+1;
 		//cache[slots][i]= MM[slots];
 		//slots=slots +1;
 				}
-		System.out.println("At that byte there is the value "+ (cache[slots][offset]) + " (Cache " + hitOrMiss + ")");
+		System.out.println("At that byte there is the value "+ cache[slots][offset] + " (Cache " + hitOrMiss + ")");
 		//System.out.println(wholeBlockStarts);
 		
 		System.out.printf("0x%03X", tag);
-		System.out.println();
+		System.out.println("tag");
 		System.out.printf("0x%03X", slots);
-		System.out.println();
+		System.out.println("slot");
 		System.out.printf("0x%03X", offset);
-		System.out.println();
+		System.out.println("offset");
 		System.out.printf("0x%03X", tagAndSlot);
-		System.out.println();
+		System.out.println("tagandslot");
 		System.out.printf("0x%03X", slotAndOffset);
-		System.out.println();
+		System.out.println("slotandoffset");
 		System.out.printf("0x%03X", MM[0x2ef]);
 		System.out.println();
 		System.out.println();
