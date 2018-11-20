@@ -36,7 +36,7 @@ public class CacheSim {
 		Scanner reader = new Scanner(System.in); 
 		
 		//This part fills in 0-ff 7 times in MM*************************************
-			for (int slot=0;slot<=7; slot++) {
+			for (int tag=0;tag<=7; tag++) {
 			for (int i=0;i<=0xff; i++) {//if I make this 0x7ff it will show the address of the whole thing in hex******
 				MM[i]=i;
 				
@@ -108,7 +108,7 @@ public class CacheSim {
 		int slots = (addyInput & 0x0f0)>>>4;
 			int tagAndSlot=(addyInput & 0xff0);
 			int slotAndOffset=(addyInput & 0x0ff);
-		int wholeblockstarts = slotAndOffset;	
+		int wholeblockstarts = addyInput;	
 		
 		int validBit =cache[slots][2];
 		
@@ -120,7 +120,7 @@ public class CacheSim {
 //****************************************************************************************************************************************************		
 //*****************************************************************************************************************************************************
 //*****************************************************************************************************************************************************
-		cache[tag][i]= MM[wholeBlockStarts];
+		cache[slots][i]= MM[wholeBlockStarts];
 	wholeBlockStarts=wholeBlockStarts +1;
 	//tagAndSlot=tagAndSlot+1;
 		//cache[slots][i]= MM[slots];
