@@ -56,7 +56,7 @@ public class CacheSim {
 			
 			
 			//Here is the part for asking questions*****************************************
-			for(int v=0; v<25;v++) {
+			for(int v=0; v<0X019;v++) {
 			System.out.println("(R)ead, (W)rite, or (D)isplay Cache?");
 			//char choice = directionsArray[d];	
 				 if (directionsArray[d]=='D') {
@@ -88,8 +88,10 @@ public class CacheSim {
 		      
 		    }
 		    System.out.println();
+		    d++;
 		    }
-		break;}
+		
+		}
 		
 				
 		
@@ -98,7 +100,7 @@ public class CacheSim {
 				 if (directionsArray[d]=='R') {
 				
 		System.out.println("What do you want to read?");
-		
+		System.out.println("R");
 		int addyInput = readArray[r];
 		
 		System.out.printf("0x%03X", addyInput);
@@ -129,7 +131,7 @@ public class CacheSim {
 		System.out.println("At that byte there is the value "+ cache[slots][offset] + " (Cache " + hitOrMiss + ")");
 		//System.out.println(wholeBlockStarts);
 		
-		System.out.printf("0x%03X", tag);
+		/*System.out.printf("0x%03X", tag);
 		System.out.println("tag");
 		System.out.printf("0x%03X", slots);
 		System.out.println("slot");
@@ -141,7 +143,7 @@ public class CacheSim {
 		System.out.println("slotandoffset");
 		System.out.printf("0x%03X", MM[0x2ef]);
 		System.out.println();
-		System.out.println();
+		System.out.println();*/
 		//System.out.println();
 		//System.out.println(offset);
 				//validBit=8;//should I put cache[slots][2]=1; instead?yes, valid bit doesn't work
@@ -150,7 +152,7 @@ public class CacheSim {
 				cache[slots][3]=(addyInput & 0xf00)>>>8;
 				
 				
-				//break;
+				
 				}
 	else {
 		hitOrMiss= "Hit";
