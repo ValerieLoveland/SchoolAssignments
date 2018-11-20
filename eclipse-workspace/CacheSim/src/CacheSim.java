@@ -29,10 +29,8 @@ public class CacheSim {
 		int d=0;
 		int w=0;
 		int r=0;
+		char choice='R';
 		
-		
-		
-
 		Scanner reader = new Scanner(System.in); 
 		
 		//This part fills in 0-ff 7 times in MM*************************************
@@ -56,10 +54,11 @@ public class CacheSim {
 			
 			
 			//Here is the part for asking questions*****************************************
-			for(int v=0; v<0X019;v++) {
+			for(d=0; d<30;d++) {
+			directionsArray[d]=choice;
 			System.out.println("(R)ead, (W)rite, or (D)isplay Cache?");
-			//char choice = directionsArray[d];	
-				 if (directionsArray[d]=='D') {
+			
+		if (choice=='D') {
 		//Here is the heading for the cache****************************************
 		for (int i=0;i<8; i++) {
 			cacheHead[i]=" ";
@@ -89,6 +88,7 @@ public class CacheSim {
 		    }
 		    System.out.println();
 		    d++;
+		    //break;
 		    }
 		
 		}
@@ -97,7 +97,7 @@ public class CacheSim {
 		
 		//make READ here*******************************************
 		
-				 if (directionsArray[d]=='R') {
+				 if (choice=='R') {
 				
 		System.out.println("What do you want to read?");
 		System.out.println("R");
@@ -131,45 +131,34 @@ public class CacheSim {
 		System.out.println("At that byte there is the value "+ cache[slots][offset] + " (Cache " + hitOrMiss + ")");
 		//System.out.println(wholeBlockStarts);
 		
-		/*System.out.printf("0x%03X", tag);
-		System.out.println("tag");
-		System.out.printf("0x%03X", slots);
-		System.out.println("slot");
-		System.out.printf("0x%03X", offset);
-		System.out.println("offset");
-		System.out.printf("0x%03X", tagAndSlot);
-		System.out.println("tagandslot");
-		System.out.printf("0x%03X", slotAndOffset);
-		System.out.println("slotandoffset");
-		System.out.printf("0x%03X", MM[0x2ef]);
-		System.out.println();
-		System.out.println();*/
-		//System.out.println();
-		//System.out.println(offset);
-				//validBit=8;//should I put cache[slots][2]=1; instead?yes, valid bit doesn't work
-				cache[slots][2]=1;//valid bit
+		cache[slots][2]=1;//valid bit
 				validBit=1;
 				cache[slots][3]=(addyInput & 0xf00)>>>8;
 				
 				
 				
-				}
+				//break;
+			}
 	else {
 		hitOrMiss= "Hit";
+		System.out.println();
 		System.out.println("The data in that bit is: " + cache[slots][offset] +"(Cache " + hitOrMiss + ")");
 		
-		cache[slots][2]=1;}
-
-		d++;
+		cache[slots][2]=1;
 		r++;
+		//break;
+		}
+
+		//d++;
 		
-			}}		
+		
+			}	
 			
 
 	//make write here***************************************************************************************************************************
  //*********************************************************************************************************************************************
 //***********************************************************************************************************************************************
- if (directionsArray[d]=='W'){
+ if (choice=='W'){
 	 int addyInput = writeArray[w];
 	 System.out.println("What address would you want to write to?");		
 	 writeAddress=writeArray[w];	
@@ -200,6 +189,7 @@ System.out.println("Value "+ inputData + "has been written to address"+ "(cache 
 cache[slots][1]= 1; //dirty bit
 cache[slots][2]= 1; //valid bit
 cache[slots][3]=tag;
+//break;
 }
 else {
 hitOrMiss="Hit";
@@ -209,9 +199,10 @@ System.out.println("Value "+ inputData + "has been written to address"+ "(cache 
 cache[slots][1]= 1; //dirty bit
 cache[slots][2]= 1; //valid bit
 cache[slots][3]=tag;}
-d++;
+//d++;
 w++;
-}}}
+//break;
+}break;}}}
 
 /*this is to writeback the cache into the MM (what is i and j here?)
 for (int i = 0; i < 16; i++) 
