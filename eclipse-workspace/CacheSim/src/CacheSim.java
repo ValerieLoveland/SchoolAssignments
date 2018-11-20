@@ -41,8 +41,8 @@ public class CacheSim {
 				MM[i]=i;
 				
 			//I don't need this to print so I am taking this out for now. this is to debug********************************
-				//System.out.printf("%02x",MM[i]);//This is to just print the value in each element in MM inhex*********************
-				//System.out.println(); 
+				System.out.printf("%02x",MM[i]);//This is to just print the value in each element in MM inhex*********************
+				System.out.println(); 
 			}
 		
 		}	/*for(int i = 0; i<=0xF; i++){
@@ -108,7 +108,7 @@ public class CacheSim {
 		int slots = (addyInput & 0x0f0)>>>4;
 			int tagAndSlot=(addyInput & 0xff0);
 			int slotAndOffset=(addyInput & 0x0ff);
-		int wholeblockstarts = addyInput;	
+		int wholeblockstarts = tagAndSlot;	
 		
 		int validBit =cache[slots][2];
 		
